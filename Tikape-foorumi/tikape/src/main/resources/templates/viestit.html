@@ -1,0 +1,29 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Foorumi</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <h1>Viestit</h1>
+        
+        <ul style="list-style-type:none">
+            <li th:each="viesti: ${viestit}">
+                <span th:text="${viesti.sisalto}">Viestirivi</span>
+                <span th:text="${viesti.luotu}">aikaleima</span>
+            </li>
+        </ul>
+        
+        <h3>Vastaa</h3>
+        <form method="POST" action="/uusiviesti">
+            Nimi:<br/>
+            <input type="text" name="nimi" size="45"/><br/>
+            Viesti:<br/>
+            <textarea name="viesti" cols="35" rows="5"></textarea>
+            <input type="submit" value="Lähetä viesti"/>
+        </form>
+
+    </body>
+</html>

@@ -1,0 +1,6 @@
+[Alue|pk id int; sisalto varchar(200)]
+[Keskustelu|pk id int; otsikko varchar(200); fk aluetunnus int; luotu timestamp]
+[Viesti|pk id int; sisalto varchar(20000); fk keskustelutunnus int; fk edellinenviesti int; luotu timestamp]
+
+[Alue]1-*[Keskustelu]
+[Keskustelu]1-*[Viesti]

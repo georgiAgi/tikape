@@ -1,0 +1,22 @@
+CREATE TABLE Alue (
+	id	INTEGER PRIMARY KEY,
+	sisalto	varchar(200) NOT NULL
+);
+
+CREATE TABLE Keskustelu (
+	id	INTEGER PRIMARY KEY,
+	otsikko	varchar(200) NOT NULL,
+	aluetunnus	INTEGER NOT NULL,
+	luotu	timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	FOREIGN KEY(aluetunnus) REFERENCES Alue(id)
+);
+
+CREATE TABLE Viesti (
+	id	INTEGER PRIMARY KEY,
+	sisalto	varchar(20000) NOT NULL,
+	keskustelutunnus INTEGER NOT NULL,
+	edellinenviesti	INTEGER,
+	luotu	timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	FOREIGN KEY(keskustelutunnus) REFERENCES Keskustelu(id),
+	FOREIGN KEY(edellinenviesti) REFERENCES Viesti(id)
+);

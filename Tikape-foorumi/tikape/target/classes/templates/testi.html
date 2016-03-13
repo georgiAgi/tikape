@@ -1,0 +1,21 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Foorumi</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <h1>Keskustelut</h1>
+        
+        <ul style="list-style-type:none">
+            <li th:each="testi: ${testit}">
+                <span th:text="${testi.sisalto}">Aluerivi</span>
+            </li>
+        </ul>
+        
+        
+
+    </body>
+</html>

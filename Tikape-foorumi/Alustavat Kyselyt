@@ -1,0 +1,18 @@
+INSERT INTO Alue (sisalto)
+  VALUES ('?')
+
+INSERT INTO Keskustelu (otsikko, aluetunnus, luotu)
+  VALUES ('?', '?', '?')
+
+INSERT INTO Viesti (sisalto, keskustelutunnus, edellinenviesti, luotu)
+  VALUES ('?', '?', '?', '?')
+
+SELECT Viesti.sisalto FROM Viesti, Keskustelu
+  WHERE viesti.keskustelutunnus = keskustelu.id
+  AND keskustelu.id = '?'
+
+SELECT Keskustelu.otsikko FROM Keskustelu, Alue
+  WHERE keskustelu.aluetunnus = alue.id
+  AND alue.id = '?'
+
+SELECT * FROM Alue
